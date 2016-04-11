@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" ng-app="homeAPIsApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="poc.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>IBM API Connect - Home Sensors</h1>
+      </div>
+      <p class="lead">This is a very simple example of IBM API Connect and BlueMix connected to IoT sensors.</p> 
+      <div class="row">
+          <div class="col-lg-6">
+              <h2>Temperature</h2>
+              <div class="table-responsive" ng-controller="temperatureController as temperatureList">
+                  <table class="table table-bordered table-hover table-striped">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Temperature (Celcius)</th>
+                              <th>Date Time</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="temperature in temperatureList.temperatures">
+                              <td>{{temperature.id}}</td>
+                              <td>{{temperature.currentValue}}</td>
+                              <td>{{temperature.timestamp}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <h2>Humidity</h2>
+              <div class="table-responsive" ng-controller="humidityController as humidityList">
+                  <table class="table table-bordered table-hover table-striped">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Humidity</th>
+                              <th>Date Time</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="humidity in humidityList.humidities">
+                              <td>{{humidity.id}}</td>
+                              <td>{{humidity.currentValue}}</td>
+                              <td>{{humidity.timestamp}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <p><strong>Technologies</strong>: IBM API Connect, Node-Red, aREST.io, AngularJS, Node.js, Django, Bluemix, Heroku and Arduino UNO with dht11</p>
+      <p>IBM API Connect - Eduardo Francellino</p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+type: bluemix
+server:
+  displayName: US South
+  name: us-south
+  host: us.apiconnect.ibmcloud.com
+org:
+  url: 'https://us.apiconnect.ibmcloud.com/v1/orgs/570838860cf2765a58342812'
+  id: 570838860cf2765a58342812
+  name: eduardorfbribmcom-dev2
+  status: active
+  orgType: apiProvider
+  displayName: eduardorf@br.ibm.com (dev)
+  externalOrgId: db3b181e-091a-42b7-9c9d-db6ec353988a
+  externalInviteOverride: 'https://new-console.ng.bluemix.net/apis/catalog/invitation'
+  externalSpaceId: db3b181e-091a-42b7-9c9d-db6ec353988a
+  externalNativeOrgId: 3ea3d591-4e6d-458b-97d3-b47ac53bedcf
+  advPortalOverride: true
+  extUaaAuthenticated: false
+  requiresSSLClientCertCheck: false
+catalog:
+  id: 570838870cf2765a58342819
+  shortName: sb
+  name: Sandbox
+  sandbox: true
+app:
+  new: true
+  name: homeAPIs
+id: 8ec21644-c3c9-4121-a5c7-b9e6d5977458
+target: 1.0.0

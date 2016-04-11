@@ -1,0 +1,620 @@
+paths:
+  /temperatures:
+    post:
+      tags:
+        - temperature
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: temperature.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/temperature'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/temperature'
+      deprecated: false
+    put:
+      tags:
+        - temperature
+      summary: Update an existing model instance or insert a new one into the data source.
+      operationId: temperature.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/temperature'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/temperature'
+      deprecated: false
+    get:
+      tags:
+        - temperature
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: temperature.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/temperature'
+      deprecated: false
+  '/temperatures/{id}/exists':
+    get:
+      tags:
+        - temperature
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'temperature.exists__get_temperatures_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            required: []
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/temperatures/{id}':
+    head:
+      tags:
+        - temperature
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'temperature.exists__head_temperatures_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            required: []
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - temperature
+      summary: Find a model instance by id from the data source.
+      operationId: temperature.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/temperature'
+      deprecated: false
+    delete:
+      tags:
+        - temperature
+      summary: Delete a model instance by id from the data source.
+      operationId: temperature.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - temperature
+      summary: Update attributes for a model instance and persist it into the data source.
+      operationId: temperature.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/temperature'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/temperature'
+      deprecated: false
+  /temperatures/findOne:
+    get:
+      tags:
+        - temperature
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: temperature.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/temperature'
+      deprecated: false
+  /temperatures/update:
+    post:
+      tags:
+        - temperature
+      summary: Update instances of the model matched by where from the data source.
+      operationId: temperature.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/temperature'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /temperatures/count:
+    get:
+      tags:
+        - temperature
+      summary: Count instances of the model matched by where from the data source.
+      operationId: temperature.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            required: []
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /temperatures/change-stream:
+    post:
+      tags:
+        - temperature
+      summary: Create a change stream.
+      operationId: temperature.createChangeStream__post_temperatures_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - temperature
+      summary: Create a change stream.
+      operationId: temperature.createChangeStream__get_temperatures_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  /humidities:
+    post:
+      tags:
+        - humidity
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: humidity.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/humidity'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/humidity'
+      deprecated: false
+    put:
+      tags:
+        - humidity
+      summary: Update an existing model instance or insert a new one into the data source.
+      operationId: humidity.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/humidity'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/humidity'
+      deprecated: false
+    get:
+      tags:
+        - humidity
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: humidity.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/humidity'
+      deprecated: false
+  '/humidities/{id}/exists':
+    get:
+      tags:
+        - humidity
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'humidity.exists__get_humidities_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            required: []
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/humidities/{id}':
+    head:
+      tags:
+        - humidity
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'humidity.exists__head_humidities_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            required: []
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - humidity
+      summary: Find a model instance by id from the data source.
+      operationId: humidity.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/humidity'
+      deprecated: false
+    delete:
+      tags:
+        - humidity
+      summary: Delete a model instance by id from the data source.
+      operationId: humidity.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - humidity
+      summary: Update attributes for a model instance and persist it into the data source.
+      operationId: humidity.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/humidity'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/humidity'
+      deprecated: false
+  /humidities/findOne:
+    get:
+      tags:
+        - humidity
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: humidity.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/humidity'
+      deprecated: false
+  /humidities/update:
+    post:
+      tags:
+        - humidity
+      summary: Update instances of the model matched by where from the data source.
+      operationId: humidity.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/humidity'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /humidities/count:
+    get:
+      tags:
+        - humidity
+      summary: Count instances of the model matched by where from the data source.
+      operationId: humidity.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            required: []
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /humidities/change-stream:
+    post:
+      tags:
+        - humidity
+      summary: Create a change stream.
+      operationId: humidity.createChangeStream__post_humidities_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - humidity
+      summary: Create a change stream.
+      operationId: humidity.createChangeStream__get_humidities_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+definitions:
+  temperature:
+    properties:
+      currentValue:
+        type: number
+        format: double
+      id:
+        type: number
+        format: double
+      timestamp:
+        type: string
+        format: date
+    required:
+      - id
+    additionalProperties: false
+  x-any:
+    properties: {}
+  humidity:
+    properties:
+      currentValue:
+        type: number
+        format: double
+      id:
+        type: number
+        format: double
+      timestamp:
+        type: string
+        format: date
+    required:
+      - id
+    additionalProperties: false
+swagger: '2.0'
+info:
+  x-ibm-name: homeapis
+  version: 1.0.0
+  title: homeAPIs
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /api
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  gateway: micro-gateway
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)
